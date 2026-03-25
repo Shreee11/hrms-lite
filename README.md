@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# HRMS Lite – Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React frontend for the HRMS Lite (Human Resource Management System) application.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Project Overview
 
-### `npm start`
+HRMS Lite is a lightweight web application that allows an admin to:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Manage employee records (add, edit, delete, search)
+- Track daily attendance (mark Present / Absent, filter by employee and date)
+- View a dashboard with summary stats and department breakdown
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Purpose | Technology |
+|---|---|
+| UI Framework | React 19 |
+| Routing | React Router DOM v7 |
+| HTTP Client | Axios |
+| Icons | React Icons (HeroIcons) |
+| Notifications | React Toastify |
+| Styling | Custom CSS |
+| Deployment | Vercel |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Running Locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js 16+
+- npm
+- Backend API running at `http://localhost:8000`
 
-### `npm run eject`
+### Steps
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# 1. Clone the repo
+git clone https://github.com/your-username/hrms-lite.git
+cd hrms-lite
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 2. Install dependencies
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# 3. Configure environment
+cp .env.example .env.local
+# Edit .env.local and set REACT_APP_API_URL=http://localhost:8000/api
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# 4. Start the dev server
+npm start
+```
 
-## Learn More
+Open **http://localhost:3000** in your browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Environment Variables
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Variable | Description | Default |
+|---|---|---|
+| `REACT_APP_API_URL` | Backend API base URL | `http://localhost:8000/api` |
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Deployment (Vercel)
 
-### Analyzing the Bundle Size
+1. Import the GitHub repo into Vercel
+2. Add environment variable in Vercel dashboard:
+   - `REACT_APP_API_URL` → `https://hrms-lite-api.onrender.com/api`
+3. Vercel auto-detects Create React App — no extra config needed
+4. `vercel.json` handles client-side routing (all routes → `index.html`)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+src/
+├── components/        # Reusable UI (Sidebar, Modal, Loading, EmptyState, ErrorState, ConfirmDialog)
+├── pages/             # Dashboard, Employees, Attendance
+├── services/
+│   └── api.js         # Axios instance + all API calls
+├── styles/
+│   └── App.css
+├── App.js
+└── index.js
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Assumptions & Limitations
 
-### Deployment
+- No authentication — single admin user (per project scope)
+- All data is managed via the backend REST API; no local state persistence
+- MySQL is used on the backend for persistent storage
+- Pagination is handled server-side (page size: 50 records)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
