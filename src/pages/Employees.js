@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {
-  HiOutlineSearch, HiOutlinePlus, HiOutlineTrash, HiOutlinePencil, HiOutlineUsers
+  HiOutlineSearch, HiOutlinePlus, HiOutlineTrash, HiOutlinePencil
 } from 'react-icons/hi';
 import { getEmployees, createEmployee, updateEmployee, deleteEmployee } from '../services/api';
 import { toast } from 'react-toastify';

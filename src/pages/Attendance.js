@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {
-  HiOutlinePlus, HiOutlineTrash, HiOutlineClipboardCheck
+  HiOutlinePlus, HiOutlineTrash
 } from 'react-icons/hi';
 import { getAttendance, getEmployees, createAttendance, deleteAttendance } from '../services/api';
 import { toast } from 'react-toastify';
