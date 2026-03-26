@@ -16,7 +16,7 @@ const Dashboard = () => {
     try {
       const [dashRes, attRes] = await Promise.all([
         getDashboard(),
-        getAttendance({ page_size: 10 }),
+        getAttendance({}),
       ]);
       setData(dashRes.data);
       setRecentAttendance(attRes.data.results || attRes.data);

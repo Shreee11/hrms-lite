@@ -89,7 +89,11 @@ const Attendance = () => {
     if (!validateForm()) return;
     setSubmitting(true);
     try {
-      await createAttendance(form);
+      await createAttendance({
+        employee_id: form.employee,
+        date: form.date,
+        status: form.status,
+      });
       toast.success('Attendance marked successfully');
       setModalOpen(false);
       fetchRecords();

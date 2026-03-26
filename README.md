@@ -68,7 +68,7 @@ Open **http://localhost:3000** in your browser.
 
 1. Import the GitHub repo into Vercel
 2. Add environment variable in Vercel dashboard:
-   - `REACT_APP_API_URL` → `https://hrms-lite-api.onrender.com/api`
+   - `REACT_APP_API_URL` → `https://hrms-fastapi-api.onrender.com/api`
 3. Vercel auto-detects Create React App — no extra config needed
 4. `vercel.json` handles client-side routing (all routes → `index.html`)
 
@@ -94,6 +94,6 @@ src/
 
 - No authentication — single admin user (per project scope)
 - All data is managed via the backend REST API; no local state persistence
-- MySQL is used on the backend for persistent storage
+- MongoDB is used on the backend for persistent storage (via FastAPI + Motor)
 - Pagination is handled server-side (page size: 50 records)
 
