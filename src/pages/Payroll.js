@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { HiOutlinePlus, HiOutlineCheck, HiOutlineClock, HiOutlineDownload, HiOutlineEye, HiOutlineCurrencyRupee } from 'react-icons/hi';
 import {
   getPayrollRuns, createPayrollRun, approvePayrollRun, markRunPaid,
